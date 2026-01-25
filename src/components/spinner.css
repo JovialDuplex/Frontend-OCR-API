@@ -1,0 +1,31 @@
+svg {
+    animation: rotate 2s linear infinite;
+}
+svg circle {
+    fill: none;
+    stroke: #000;
+    stroke-width: 10px;
+    stroke-dashoffset: 230%;
+    stroke-dasharray: 230%;
+    stroke-linecap: round;
+    animation: animate 4s linear infinite
+}
+@keyframes animate {
+    0%, 100% {
+        stroke-dashoffset: 230%;
+    }
+    50%{
+        stroke-dashoffset: 0%;
+    }
+    50.1% {
+        stroke-dashoffset: 450%;
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
