@@ -125,7 +125,7 @@ function App() {
               <div className="h-100 w-100 d-flex flex-column gap-2" >
                 <h2 className="text-center text-uppercase fw-bold"> Preview Image </h2>
                   <div className="position-relative flex-grow-1 rounded-3" style={{boxShadow: "0 0 10px #000"}}>
-                    <img src={urlFile} alt={"upload image"} width={"100%"} height={"100%"} className="position-absolute start-0 top-0"/>
+                    <img src={urlFile} alt={"Upload"} width={"100%"} height={"100%"} className="position-absolute start-0 top-0"/>
                     <button onClick={removeSelectFile} className="btn btn-dark position-absolute end-0 top-0 m-2"><i className="fas fa-close"></i></button>
                   </div>
                   <Button variant={"primary"} className={"fw-bold"} onClick={sendFileToAPI}> Erase Text</Button>
@@ -149,7 +149,7 @@ function App() {
             <h2 className={"text-center text-uppercase fw-bold"}> ocr result</h2>
             <div className={"bg-light rounded-3 flex-grow-1 position-relative"}>
               {isLoading && <Spinner />}
-              {(ocrResultUrl !== "") && <img src={ocrResultUrl} className={"position-absolute start-0 top-0 h-100 w-100"} alt="ocr image result" />}
+              {(ocrResultUrl !== "") && <img src={ocrResultUrl} className={"position-absolute start-0 top-0 h-100 w-100"} alt="OCR Result" />}
             </div>
             <Button className={"mt-2 fw-bold"} onClick={()=>downloadImage(ocrResultUrl, "ocr")} disabled={ocrResultUrl !== "" ? false : true}> Download OCR Result <span className={"fas fa-download"}></span></Button>
           </div>
@@ -164,7 +164,7 @@ function App() {
             <div className="image-result bg-light flex-grow-1 rounded-3 position-relative">
               {/* image result block */}
               {isLoading && <Spinner/>}
-              {(imageResultUrl !== "") && <img src={imageResultUrl} className={"h-100 w-100 position-absolute start-0 top-0"} alt={"image result"} />}
+              {(imageResultUrl !== "") && <img src={imageResultUrl} className={"h-100 w-100 position-absolute start-0 top-0"} alt={"Final Result"} />}
             </div>
             <div className="d-flex justify-content-between">
               <button onClick={()=>downloadImage(imageResultUrl, "image")} className="btn btn-success btn-success fw-bold" disabled={imageResultUrl !== "" ? false : true}> Download Image <span
@@ -186,7 +186,7 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {(outputText != "") && (JSON.parse(outputText).map((value, index)=>(
+                      {(outputText !== "") && (JSON.parse(outputText).map((value, index)=>(
                         <tr key={index}>
                           <td className={"text-center"}>{value.text}</td>
                           <td className={'text-center'}>({value.x}, {value.y})</td>
@@ -208,7 +208,7 @@ function App() {
                   <Modal.Body style={{height: 500}} className={"d-flex flex-column gap-2"}>
                     <div className={"ocr-image-mobile rounded-3 h-100 w-100 position-relative"}>
                       {isLoading && <Spinner/>}
-                      {(ocrResultUrl !== "") && <img src={ocrResultUrl} className={"position-absolute h-100 w-100 start-0 top-0"} alt="ocr result image" />}
+                      {(ocrResultUrl !== "") && <img src={ocrResultUrl} className={"position-absolute h-100 w-100 start-0 top-0"} alt="OCR Result" />}
                     </div>
                     <button className={"btn btn-success fw-bold"} onClick={()=>downloadImage(ocrResultUrl, "ocr")} disabled={ocrResultUrl!=="" ? false : true}>Download OCR Result <span className={"fas fa-download"}></span></button>
                   </Modal.Body>
