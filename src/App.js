@@ -117,7 +117,9 @@ function App() {
   };
 
   // keep backend server open 
-  const keepOpen = ()=> {
+  
+  useEffect(()=>{
+  const keepOpen = async ()=> {
     try {
       const response = await axios.get("https://8000-01kfy0asv24j2kkd0xxs48725n.cloudspaces.litng.ai");
       console.log(await response.data);
@@ -126,8 +128,6 @@ function App() {
       console.log("An error has occured : ", error);
     }
   };
-  
-  useEffect(()=>{
     // make a request each 5 min 
     keepOpen();
     const interval = setInterval(keepOpen, 5*60*1000);
