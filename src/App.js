@@ -1,6 +1,6 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.css";
-import  {useState, useRef} from "react";
+import  {useState, useRef, useEffect} from "react";
 import {Modal, Button} from "react-bootstrap";
 import Spinner from "./components/spinner";
 import JSZIP from "jszip";
@@ -116,6 +116,24 @@ function App() {
 
   };
 
+  // keep backend server open 
+  const keepOpen = ()=> {
+    try {
+      const response = await axios.get("https://8000-01kfy0asv24j2kkd0xxs48725n.cloudspaces.litng.ai");
+      console.log(await response.data);
+    }
+    catch(error) {
+      console.log("An error has occured : ", error);
+    }
+  };
+  
+  useEffect(()=>{
+    // make a request each 5 min 
+    keepOpen();
+    const interval = setInterval(keepOpen, 5*60*1000);
+    return ()=>clearInterval(interval);
+  }, []);
+  
   return (
       <div className="App">
         <div className="h-100 main-container container-fluid">
