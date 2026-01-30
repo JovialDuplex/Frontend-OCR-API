@@ -1,6 +1,6 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.css";
-import  {useState, useRef, useEffect} from "react";
+import  {useState, useRef} from "react";
 import {Modal, Button} from "react-bootstrap";
 import Spinner from "./components/spinner";
 import JSZIP from "jszip";
@@ -16,21 +16,6 @@ function App() {
   const [ocrResultUrl, setOcrResultUrl] = useState("");
   const [imageResultUrl, setImageResultUrl] = useState("");
   const [outputText, setOutputText] = useState("");
-
-  const outputInfo = [];
-  // JSON.parse(outputText);
-  var i = 0;
-
-  for(i; i<100; i++){
-    outputInfo.push({
-      x: 2*i,
-      y: 15*i,
-      w: 100*i,
-      h: 200*i,
-      confidence: i/100,
-      text: `Jovial${i}`
-    })
-  }
 
   // setOutputText(JSON.stringify(outputInfo));
 
