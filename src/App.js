@@ -61,7 +61,7 @@ function App() {
   const sendFileToAPI = async()=>{
     try {
       setIsLoading(true);
-      const response = await axios.post("https://8000-01kfy0asv24j2kkd0xxs48725n.cloudspaces.litng.ai/uploadfile", {file: file}, {
+      const response = await axios.post("https://jovialsoh-jovial-api.hf.space/uploadfile", {file: file}, {
         responseType: "blob",
         headers: {
           "Content-Type" : "multipart/form-data"
@@ -115,24 +115,6 @@ function App() {
     link.click();
 
   };
-
-  // keep backend server open 
-  
-  useEffect(()=>{
-  const keepOpen = async ()=> {
-    try {
-      const response = await axios.get("https://8000-01kfy0asv24j2kkd0xxs48725n.cloudspaces.litng.ai");
-      console.log(await response.data);
-    }
-    catch(error) {
-      console.log("An error has occured : ", error);
-    }
-  };
-    // make a request each 5 min 
-    keepOpen();
-    const interval = setInterval(keepOpen, 5*60*1000);
-    return ()=>clearInterval(interval);
-  }, []);
   
   return (
       <div className="App">
