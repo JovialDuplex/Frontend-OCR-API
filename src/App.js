@@ -174,9 +174,9 @@ function App() {
                       {(outputText !== "") && (JSON.parse(outputText).map((value, index)=>(
                         <tr key={index}>
                           <td className={"text-center"}>{value.text}</td>
-                          <td className={'text-center'}>({value.x}, {value.y})</td>
-                          <td className={'text-center'}>({value.w}, {value.h})</td>
-                          <td className={'text-center'}>{(value.confidence * 100).toFixed(2)} % </td>
+                          <td className={'text-center'}>({value.pos_x}, {value.pos_y})</td>
+                          <td className={'text-center'}>({value.width}, {value.height})</td>
+                          <td className={'text-center'}>{(value.precision * 100).toFixed(2)} % </td>
                         </tr>
                       )))}
                     </tbody>
