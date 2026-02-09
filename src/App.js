@@ -46,7 +46,7 @@ function App() {
   const sendFileToAPI = async()=>{
     try {
       setIsLoading(true);
-      const response = await axios.post("https://8000-01kfy0asv24j2kkd0xxs48725n.cloudspaces.litng.ai/uploadfile", {file: file}, {
+      const response = await axios.post("https://jovialsoh-inpaintingandocrapi.hf.space/text-erase", {image: file}, {
         responseType: "blob",
         headers: {
           "Content-Type" : "multipart/form-data"
